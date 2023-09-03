@@ -1,0 +1,9 @@
+apiVersion: example.com/v1
+kind: VaultLogin
+metadata:
+  name: oidc-login
+spec:  
+  method: oidc
+  namespace: my-namespace
+  oidc_conf:
+    oidc_discovery_url: https://foo.com/dex/auth

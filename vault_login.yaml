@@ -1,0 +1,7 @@
+apiVersion: example.com/v1
+kind: VaultLogin
+metadata:
+  name: my-vault-login
+spec:  
+  method: aws
+  namespace: my-namespace

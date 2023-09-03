@@ -1,0 +1,47 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: awslogins.example.com
+spec:
+  group: example.com
+  versions:
+    - name: v2
+      served: true
+      storage: true
+  scope: Namespaced
+  names:
+    plural: awslogins
+    singular: awslogin
+    kind: AWSLogin
+    shortNames:
+      - v2
+  versions:
+    - name: v2
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                roles:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name: 
+                        type: string
+                      auth_type:
+                        type: string
+                        default: iam
+                      bound_iam_principal_arn:
+                        type: string
+                      policies:
+                        type: array
+                        items:
+                          type: string
+                      max_ttl:
+                        type: string
+                        default: 500h
